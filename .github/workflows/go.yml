@@ -5,27 +5,26 @@ name: Go
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-
   Test:
     runs-on: ubuntu-latest
     steps:
-    - name: Hello
-      run: echo I am first
-    
-    - uses: actions/checkout@v3
+      - name: Hello
+        run: echo I am first
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.24'
+      - uses: actions/checkout@v3
 
-    - name: Test
-      run: make test
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.24"
 
-    - name: Fuzz
-      run: make fuzz
+      - name: Test
+        run: make test
+
+      - name: Fuzz
+        run: make fuzz
